@@ -3,8 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="/favicon.png" type="image/png" />
-    
+    <link rel="icon" href="favicon.ico" sizes="any" />
+    <link rel="icon" href="favicon.png" type="image/png" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+
     <title>KARTAZ Gráfica Adesivos e Ripados</title>
     <meta name="description" content="Gráfica completa em Vacaria - RS. Especializada em impressos gráficos, adesivos personalizados e painéis ripados. Sua ideia, nossa forma. Atendimento personalizado desde 1998." />
     <meta name="author" content="KARTAZ Gráfica" />
@@ -14,26 +16,577 @@
     <meta property="og:type" content="website" />
     <meta property="og:title" content="KARTAZ Gráfica Adesivos e Ripados" />
     <meta property="og:description" content="Gráfica completa em Vacaria - RS. Especializada em impressos gráficos, adesivos personalizados e painéis ripados. Sua ideia, nossa forma. Atendimento personalizado desde 1998." />
-    <meta property="og:image" content="/logo.png" />
+    <meta property="og:image" content="images/logo.png" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="KARTAZ Gráfica Adesivos e Ripados" />
     <meta name="twitter:description" content="Gráfica completa em Vacaria - RS. Especializada em impressos gráficos, adesivos personalizados e painéis ripados. Sua ideia, nossa forma. Atendimento personalizado desde 1998." />
-    <meta name="twitter:image" content="/logo.png" />
+    <meta name="twitter:image" content="images/logo.png" />
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css" />
   </head>
 
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-    
+    <!-- Sprite de ícones -->
+    <svg style="display:none">
+      <symbol id="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/>
+      </symbol>
+      <symbol id="icon-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M18 6 6 18"/><path d="m6 6 12 12"/>
+      </symbol>
+      <symbol id="icon-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+      </symbol>
+      <symbol id="icon-arrow-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 19V5"/><path d="m5 12 7-7 7 7"/>
+      </symbol>
+      <symbol id="icon-chevron-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="m6 9 6 6 6-6"/>
+      </symbol>
+      <symbol id="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20 6 9 17l-5-5"/>
+      </symbol>
+      <symbol id="icon-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/>
+      </symbol>
+      <symbol id="icon-trending-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/>
+      </symbol>
+      <symbol id="icon-award" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/>
+      </symbol>
+      <symbol id="icon-printer" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><path d="M6 9V3a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v6"/><rect x="6" y="14" width="12" height="8" rx="1"/>
+      </symbol>
+      <symbol id="icon-sticker" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M15.5 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8.5Z"/><path d="M15 3v6h6"/><path d="M8 13h5"/><path d="M8 17h8"/>
+      </symbol>
+      <symbol id="icon-layout" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect width="18" height="18" x="3" y="3" rx="2"/><line x1="3" x2="21" y1="9" y2="9"/><line x1="9" x2="9" y1="21" y2="9"/>
+      </symbol>
+      <symbol id="icon-package" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M16.5 9.4 7.55 4.24"/><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.27 6.96 12 12.01l8.73-5.05"/><path d="M12 22.08V12"/>
+      </symbol>
+      <symbol id="icon-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+      </symbol>
+      <symbol id="icon-quote" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/>
+      </symbol>
+      <symbol id="icon-star" viewBox="0 0 20 20" fill="currentColor">
+        <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+      </symbol>
+      <symbol id="icon-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+      </symbol>
+      <symbol id="icon-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"/>
+      </symbol>
+      <symbol id="icon-map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/>
+      </symbol>
+      <symbol id="icon-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16.5 14.5"/>
+      </symbol>
+      <symbol id="icon-instagram" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
+      </symbol>
+      <symbol id="icon-message-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/>
+      </symbol>
+    </svg>
+
+    <div class="min-h-screen">
+      <!-- Header -->
+      <header class="site-header" id="site-header">
+        <nav class="container header-nav">
+          <div class="header-row">
+            <button class="logo-link" data-scroll-to="hero" aria-label="Ir para o início">
+              <img src="images/logo.png" alt="KARTAZ Gráfica Logo" class="logo-img" />
+            </button>
+
+            <div class="nav-desktop">
+              <button class="nav-link" data-scroll-to="hero">Início</button>
+              <button class="nav-link" data-scroll-to="sobre">Sobre</button>
+              <button class="nav-link" data-scroll-to="servicos">Serviços</button>
+              <button class="nav-link" data-scroll-to="produtos">Produtos</button>
+              <button class="nav-link" data-scroll-to="depoimentos">Depoimentos</button>
+              <button class="nav-link" data-scroll-to="contato">Contato</button>
+              <a class="header-cta" href="https://wa.me/5554991772608" target="_blank" rel="noopener noreferrer">
+                <svg class="icon icon-sm"><use href="#icon-message-circle"/></svg>
+                WhatsApp
+              </a>
+            </div>
+
+            <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Abrir menu">
+              <svg class="icon icon-lg" id="mobile-menu-icon-open"><use href="#icon-menu"/></svg>
+              <svg class="icon icon-lg hidden" id="mobile-menu-icon-close"><use href="#icon-x"/></svg>
+            </button>
+          </div>
+
+          <div class="nav-mobile hidden" id="nav-mobile">
+            <button class="nav-link-mobile" data-scroll-to="hero">Início</button>
+            <button class="nav-link-mobile" data-scroll-to="sobre">Sobre</button>
+            <button class="nav-link-mobile" data-scroll-to="servicos">Serviços</button>
+            <button class="nav-link-mobile" data-scroll-to="produtos">Produtos</button>
+            <button class="nav-link-mobile" data-scroll-to="depoimentos">Depoimentos</button>
+            <button class="nav-link-mobile" data-scroll-to="contato">Contato</button>
+            <a class="header-cta header-cta-mobile" href="https://wa.me/5554991772608" target="_blank" rel="noopener noreferrer">
+              <svg class="icon icon-sm"><use href="#icon-message-circle"/></svg>
+              Falar no WhatsApp
+            </a>
+          </div>
+        </nav>
+      </header>
+
+      <main>
+        <!-- Hero -->
+        <section id="hero" class="hero">
+          <div class="hero-bg" style="background-image:url('images/hero-background.jpg')"></div>
+          <div class="hero-overlay"></div>
+          <div class="hero-pattern"></div>
+          <div class="hero-blob hero-blob-1"></div>
+          <div class="hero-blob hero-blob-2"></div>
+          <div class="hero-blob hero-blob-3"></div>
+
+          <div class="container hero-content">
+            <div class="hero-inner">
+              <div class="hero-badges">
+                <span class="badge"><svg class="icon icon-sm"><use href="#icon-calendar"/></svg>Desde 1998</span>
+                <span class="badge"><svg class="icon icon-sm"><use href="#icon-map-pin"/></svg>Vacaria - RS</span>
+                <span class="badge"><svg class="icon icon-sm"><use href="#icon-users"/></svg>PF e PJ</span>
+              </div>
+
+              <div class="hero-logo-wrap">
+                <img src="images/logo.png" alt="KARTAZ Gráfica - Logo" class="hero-logo" />
+              </div>
+
+              <h1 class="sr-only">KARTAZ Gráfica - Adesivos e ripados</h1>
+              <h2 class="sr-only">Serviços gráficos, adesivos personalizados e painéis ripados de alta qualidade</h2>
+
+              <p class="hero-text">
+                Transformamos suas ideias em realidade com serviços gráficos, adesivos personalizados e painéis ripados de alta qualidade
+              </p>
+
+              <div class="hero-actions">
+                <button class="btn btn-primary btn-lg" data-scroll-to="servicos">
+                  Nossos serviços
+                  <svg class="icon"><use href="#icon-arrow-right"/></svg>
+                </button>
+                <a class="btn btn-outline-light btn-lg" href="https://wa.me/5554991772608" target="_blank" rel="noopener noreferrer">
+                  Fale conosco
+                </a>
+              </div>
+
+              <p class="hero-tagline gradient-text">Sua ideia, nossa forma.</p>
+            </div>
+          </div>
+
+          <button class="scroll-cue" data-scroll-to="numeros" aria-label="Rolar para baixo">
+            <svg class="icon icon-lg"><use href="#icon-chevron-down"/></svg>
+          </button>
+
+          <svg class="hero-wave" viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M0,40 C240,100 480,0 720,30 C960,60 1200,100 1440,40 L1440,100 L0,100 Z" fill="hsl(var(--background))"/>
+          </svg>
+        </section>
+
+        <!-- Números -->
+        <section id="numeros" class="stats">
+          <div class="container">
+            <div class="stats-grid">
+              <div class="stat" data-reveal>
+                <div class="stat-icon"><svg class="icon icon-xl"><use href="#icon-calendar"/></svg></div>
+                <p class="stat-number"><span id="years-count">27</span>+</p>
+                <p class="stat-label">Anos de experiência</p>
+              </div>
+              <div class="stat" data-reveal data-reveal-delay="1">
+                <div class="stat-icon"><svg class="icon icon-xl"><use href="#icon-package"/></svg></div>
+                <p class="stat-number">13+</p>
+                <p class="stat-label">Linhas de produtos</p>
+              </div>
+              <div class="stat" data-reveal data-reveal-delay="2">
+                <div class="stat-icon"><svg class="icon icon-xl"><use href="#icon-layout"/></svg></div>
+                <p class="stat-number">3</p>
+                <p class="stat-label">Áreas de atuação</p>
+              </div>
+              <div class="stat" data-reveal data-reveal-delay="3">
+                <div class="stat-icon"><svg class="icon icon-xl"><use href="#icon-award"/></svg></div>
+                <p class="stat-number">100%</p>
+                <p class="stat-label">Atendimento personalizado</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Sobre -->
+        <section id="sobre" class="section section-muted">
+          <div class="container">
+            <div class="section-header" data-reveal>
+              <span class="eyebrow">Quem somos</span>
+              <h2>Sobre nós</h2>
+              <p class="section-lead">
+                Em 01 de setembro de 1998, abrimos as portas como serigrafia e desenhos de projetos arquitetônicos.
+                Logo após, investimos em uma plotter de recorte eletrônico em vinil adesivo. Com o passar do tempo,
+                iniciamos a terceirização de adesivos digitais e serviços gráficos em pequeno e grande porte.
+              </p>
+              <p class="section-lead" style="margin-top:1rem;">
+                Também adquirimos uma plotter A0 para projetos de arquitetura e, em 2025, entramos no mercado de
+                revenda e instalação de painéis ripados. Atendemos todos os segmentos de mercado, tanto pessoas
+                físicas quanto jurídicas.
+              </p>
+            </div>
+
+            <div class="grid grid-3 max-w-6xl">
+              <div class="card card-hover milestone-card" data-reveal>
+                <div class="milestone-icon">
+                  <svg class="icon icon-xl"><use href="#icon-calendar"/></svg>
+                </div>
+                <h3 class="milestone-year">1998</h3>
+                <h4 class="milestone-title">Fundação</h4>
+                <p class="milestone-desc">Iniciamos como serigrafia e desenhos de projetos arquitetônicos</p>
+              </div>
+              <div class="card card-hover milestone-card" data-reveal data-reveal-delay="1">
+                <div class="milestone-icon">
+                  <svg class="icon icon-xl"><use href="#icon-trending-up"/></svg>
+                </div>
+                <h3 class="milestone-year">Anos 2000</h3>
+                <h4 class="milestone-title">Expansão</h4>
+                <p class="milestone-desc">Investimento em plotter de recorte eletrônico e terceirização de serviços digitais</p>
+              </div>
+              <div class="card card-hover milestone-card" data-reveal data-reveal-delay="2">
+                <div class="milestone-icon">
+                  <svg class="icon icon-xl"><use href="#icon-award"/></svg>
+                </div>
+                <h3 class="milestone-year">2025</h3>
+                <h4 class="milestone-title">Inovação</h4>
+                <p class="milestone-desc">Entrada no mercado de painéis ripados para decoração</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Serviços -->
+        <section id="servicos" class="section">
+          <div class="container">
+            <div class="section-header" data-reveal>
+              <span class="eyebrow">O que fazemos</span>
+              <h2>Nossos serviços</h2>
+              <p class="section-lead">Oferecemos uma ampla gama de serviços gráficos e decorativos para atender suas necessidades</p>
+            </div>
+
+            <div class="grid grid-3 max-w-6xl">
+              <div class="card card-hover service-card service-card-primary" data-reveal>
+                <div class="service-icon service-icon-primary">
+                  <svg class="icon icon-xl"><use href="#icon-printer"/></svg>
+                </div>
+                <h3>Gráfica</h3>
+                <p class="service-desc">Impressos gráficos em pequenas e grandes quantidades</p>
+                <ul class="service-list">
+                  <li><svg class="icon icon-sm"><use href="#icon-check"/></svg>Cartões de visita</li>
+                  <li><svg class="icon icon-sm"><use href="#icon-check"/></svg>Comandas e ordens</li>
+                  <li><svg class="icon icon-sm"><use href="#icon-check"/></svg>Receituários</li>
+                  <li><svg class="icon icon-sm"><use href="#icon-check"/></svg>Fichas de controle</li>
+                  <li><svg class="icon icon-sm"><use href="#icon-check"/></svg>Pastas personalizadas</li>
+                  <li><svg class="icon icon-sm"><use href="#icon-check"/></svg>Diversos outros impressos</li>
+                </ul>
+                <div class="service-footer">
+                  <p>Desenvolvemos sua arte</p>
+                </div>
+              </div>
+
+              <div class="card card-hover service-card service-card-accent" data-reveal data-reveal-delay="1">
+                <div class="service-icon service-icon-accent">
+                  <svg class="icon icon-xl"><use href="#icon-sticker"/></svg>
+                </div>
+                <h3>Adesivos</h3>
+                <p class="service-desc">Adesivos personalizados para todas as necessidades</p>
+                <ul class="service-list">
+                  <li><svg class="icon icon-sm"><use href="#icon-check"/></svg>Adesivos digitais com ou sem recorte especial</li>
+                  <li><svg class="icon icon-sm"><use href="#icon-check"/></svg>Adesivos microperfurados</li>
+                  <li><svg class="icon icon-sm"><use href="#icon-check"/></svg>Campanhas e divulgações</li>
+                  <li><svg class="icon icon-sm"><use href="#icon-check"/></svg>Placas com sinalizações diversos segmentos</li>
+                  <li><svg class="icon icon-sm"><use href="#icon-check"/></svg>Banners, faixas e lonas</li>
+                </ul>
+                <div class="service-footer">
+                  <p>Tudo personalizado ao gosto do cliente</p>
+                </div>
+              </div>
+
+              <div class="card card-hover service-card service-card-secondary" data-reveal data-reveal-delay="2">
+                <div class="service-icon service-icon-secondary">
+                  <svg class="icon icon-xl"><use href="#icon-layout"/></svg>
+                </div>
+                <h3>Painéis ripados</h3>
+                <p class="service-desc">Soluções modernas para decoração de ambientes</p>
+                <ul class="service-list">
+                  <li><svg class="icon icon-sm"><use href="#icon-check"/></svg>Painéis decorativos</li>
+                  <li><svg class="icon icon-sm"><use href="#icon-check"/></svg>Projetos personalizados</li>
+                  <li><svg class="icon icon-sm"><use href="#icon-check"/></svg>Orçamento sob medida</li>
+                  <li><svg class="icon icon-sm"><use href="#icon-check"/></svg>Instalação profissional</li>
+                  <li><svg class="icon icon-sm"><use href="#icon-check"/></svg>Diversos acabamentos</li>
+                  <li><svg class="icon icon-sm"><use href="#icon-check"/></svg>Revenda de materiais</li>
+                </ul>
+                <div class="service-footer">
+                  <p>Instalação profissional incluída</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Produtos -->
+        <section id="produtos" class="section section-muted">
+          <div class="container">
+            <div class="section-header" data-reveal>
+              <span class="eyebrow">Catálogo</span>
+              <h2>Nossos produtos</h2>
+              <p class="section-lead">Confira nossa linha completa de produtos gráficos e adesivos personalizados</p>
+            </div>
+
+            <div class="grid grid-products max-w-7xl">
+              <div class="card card-hover product-card" data-reveal>
+                <div class="product-image"><img src="images/produtos/placas-obra.png" alt="Placas de obra e sinalização" loading="lazy" /></div>
+                <div class="product-body"><h3>Placas de obra e sinalização</h3><p>Placas personalizadas para obras, imóveis e sinalização em geral</p></div>
+              </div>
+              <div class="card card-hover product-card" data-reveal data-reveal-delay="1">
+                <div class="product-image"><img src="images/produtos/banners.png" alt="Banners" loading="lazy" /></div>
+                <div class="product-body"><h3>Banners</h3><p>Banners para eventos, promoções e divulgação</p></div>
+              </div>
+              <div class="card card-hover product-card" data-reveal data-reveal-delay="2">
+                <div class="product-image"><img src="images/produtos/adesivo-microperfurado.png" alt="Adesivo microperfurado" loading="lazy" /></div>
+                <div class="product-body"><h3>Adesivo microperfurado</h3><p>Adesivos para veículos e vitrines com aplicação profissional</p></div>
+              </div>
+              <div class="card card-hover product-card" data-reveal>
+                <div class="product-image"><img src="images/produtos/adesivos.png" alt="Adesivos personalizados" loading="lazy" /></div>
+                <div class="product-body"><h3>Adesivos personalizados</h3><p>Etiquetas, adesivos decorativos e identificação</p></div>
+              </div>
+              <div class="card card-hover product-card" data-reveal data-reveal-delay="1">
+                <div class="product-image"><img src="images/produtos/envelopamento.png" alt="Envelopamento" loading="lazy" /></div>
+                <div class="product-body"><h3>Envelopamento</h3><p>Envelopamento de geladeiras, cervejeiras e frigobar</p></div>
+              </div>
+              <div class="card card-hover product-card" data-reveal data-reveal-delay="2">
+                <div class="product-image"><img src="images/produtos/comandas.png" alt="Comandas e ordens" loading="lazy" /></div>
+                <div class="product-body"><h3>Comandas e ordens</h3><p>Comandas personalizadas para seu estabelecimento</p></div>
+              </div>
+              <div class="card card-hover product-card" data-reveal>
+                <div class="product-image"><img src="images/produtos/receituarios.png" alt="Receituários" loading="lazy" /></div>
+                <div class="product-body"><h3>Receituários</h3><p>Receituários personalizados para profissionais da saúde</p></div>
+              </div>
+              <div class="card card-hover product-card" data-reveal data-reveal-delay="1">
+                <div class="product-image"><img src="images/produtos/fichas.png" alt="Fichas" loading="lazy" /></div>
+                <div class="product-body"><h3>Fichas</h3><p>Fichas para eventos e controle</p></div>
+              </div>
+              <div class="card card-hover product-card" data-reveal data-reveal-delay="2">
+                <div class="product-image"><img src="images/produtos/pastas.png" alt="Pastas" loading="lazy" /></div>
+                <div class="product-body"><h3>Pastas</h3><p>Pastas personalizadas para sua empresa</p></div>
+              </div>
+              <div class="card card-hover product-card" data-reveal>
+                <div class="product-image"><img src="images/produtos/rifas.png" alt="Rifas" loading="lazy" /></div>
+                <div class="product-body"><h3>Rifas</h3><p>Rifas numeradas e personalizadas</p></div>
+              </div>
+              <div class="card card-hover product-card" data-reveal data-reveal-delay="1">
+                <div class="product-image"><img src="images/produtos/wind-banner.png" alt="Wind banner" loading="lazy" /></div>
+                <div class="product-body"><h3>Wind banner</h3><p>Wind banners para divulgação externa</p></div>
+              </div>
+              <div class="card card-hover product-card" data-reveal data-reveal-delay="2">
+                <div class="product-image"><img src="images/produtos/ripados.png" alt="Painéis ripados" loading="lazy" /></div>
+                <div class="product-body"><h3>Painéis ripados</h3><p>Painéis ripados para decoração de ambientes</p></div>
+              </div>
+              <div class="card card-hover product-card" data-reveal>
+                <div class="product-image"><img src="images/produtos/piso-vinilico.png" alt="Piso vinílico clicado" loading="lazy" /></div>
+                <div class="product-body"><h3>Piso vinílico clicado</h3><p>Pisos vinílicos clicados para transformar seu ambiente</p></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Depoimentos -->
+        <section id="depoimentos" class="section">
+          <div class="container">
+            <div class="section-header" data-reveal>
+              <span class="eyebrow">Depoimentos</span>
+              <h2>O que dizem nossos clientes</h2>
+              <p class="section-lead">Depoimentos de quem confia em nosso trabalho</p>
+            </div>
+
+            <div class="grid grid-2 max-w-6xl">
+              <div class="card card-hover testimonial-card" data-reveal>
+                <svg class="icon quote-icon"><use href="#icon-quote"/></svg>
+                <div class="stars">
+                  <svg class="icon star"><use href="#icon-star"/></svg>
+                  <svg class="icon star"><use href="#icon-star"/></svg>
+                  <svg class="icon star"><use href="#icon-star"/></svg>
+                  <svg class="icon star"><use href="#icon-star"/></svg>
+                  <svg class="icon star"><use href="#icon-star"/></svg>
+                </div>
+                <blockquote>
+                  "Pedimos um feedback para nossos clientes do @escritoriocontabilzeni sobre como foi nosso atendimento e instalação da parte interna dos letreiros e adesivos nas portas do escritório. Muito obrigado pelas palavras @zenijr87. É esse reconhecimento que nos motiva a continuar dando o nosso melhor."
+                </blockquote>
+                <div class="testimonial-author">
+                  <p class="author-name">Escritório Contábil Zeni</p>
+                  <p class="author-info">Cliente desde 2023</p>
+                </div>
+              </div>
+
+              <div class="card card-hover testimonial-card" data-reveal data-reveal-delay="1">
+                <svg class="icon quote-icon"><use href="#icon-quote"/></svg>
+                <div class="stars">
+                  <svg class="icon star"><use href="#icon-star"/></svg>
+                  <svg class="icon star"><use href="#icon-star"/></svg>
+                  <svg class="icon star"><use href="#icon-star"/></svg>
+                  <svg class="icon star"><use href="#icon-star"/></svg>
+                  <svg class="icon star"><use href="#icon-star"/></svg>
+                </div>
+                <div class="testimonial-image">
+                  <img src="images/feedback-cliente.png" alt="Feedback do cliente" loading="lazy" />
+                </div>
+                <div class="testimonial-author">
+                  <p class="author-name">Cliente Satisfeito</p>
+                  <p class="author-info">Parceiro de longa data</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Contato -->
+        <section id="contato" class="section section-muted">
+          <div class="container">
+            <div class="section-header" data-reveal>
+              <span class="eyebrow">Fale com a gente</span>
+              <h2>Entre em contato</h2>
+              <p class="section-lead">Estamos prontos para transformar suas ideias em realidade</p>
+            </div>
+
+            <div class="contact-layout">
+              <div class="grid grid-2 contact-grid" data-reveal>
+                <div class="card card-hover contact-card">
+                  <div class="contact-icon"><svg class="icon icon-md"><use href="#icon-phone"/></svg></div>
+                  <div>
+                    <h3>Telefone</h3>
+                    <a href="https://wa.me/5554991772608" target="_blank" rel="noopener noreferrer">(54) 99177-2608</a>
+                  </div>
+                </div>
+                <div class="card card-hover contact-card">
+                  <div class="contact-icon"><svg class="icon icon-md"><use href="#icon-mail"/></svg></div>
+                  <div>
+                    <h3>E-mail</h3>
+                    <a href="mailto:kartazito@gmail.com">kartazito@gmail.com</a>
+                  </div>
+                </div>
+                <div class="card card-hover contact-card">
+                  <div class="contact-icon"><svg class="icon icon-md"><use href="#icon-map-pin"/></svg></div>
+                  <div>
+                    <h3>Endereço</h3>
+                    <p>Rua Serafim Fagundes, 532</p>
+                  </div>
+                </div>
+                <div class="card card-hover contact-card">
+                  <div class="contact-icon"><svg class="icon icon-md"><use href="#icon-clock"/></svg></div>
+                  <div>
+                    <h3>Horário</h3>
+                    <p>Segunda a sexta 8:00 às 12:00 | 13:30 às 18:00 - Sábados com hora marcada</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="map-card card" data-reveal data-reveal-delay="1">
+                <iframe
+                  title="Localização KARTAZ Gráfica"
+                  src="https://www.google.com/maps?q=Rua+Serafim+Fagundes,+532,+Vacaria,+RS&output=embed"
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+              </div>
+            </div>
+
+            <div class="contact-actions">
+              <a class="btn btn-primary btn-lg" href="https://wa.me/5554991772608" target="_blank" rel="noopener noreferrer">
+                <svg class="icon"><use href="#icon-phone"/></svg>
+                WhatsApp
+              </a>
+              <a class="btn btn-outline-light btn-lg" href="https://www.instagram.com/kartazito" target="_blank" rel="noopener noreferrer">
+                <svg class="icon"><use href="#icon-instagram"/></svg>
+                Instagram
+              </a>
+              <a class="btn btn-outline-light btn-lg" href="mailto:kartazito@gmail.com">
+                <svg class="icon"><use href="#icon-mail"/></svg>
+                E-mail
+              </a>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <!-- Footer -->
+      <footer class="site-footer">
+        <div class="container footer-inner">
+          <div class="footer-grid">
+            <div class="footer-brand">
+              <img src="images/logo.png" alt="KARTAZ Gráfica Logo" class="footer-logo" />
+              <p>Soluções criativas em comunicação visual e gráfica. Qualidade e profissionalismo para sua empresa.</p>
+              <div class="footer-social">
+                <a href="https://wa.me/5554991772608" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+                  <svg class="icon icon-sm"><use href="#icon-message-circle"/></svg>
+                </a>
+                <a href="https://www.instagram.com/kartazito" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                  <svg class="icon icon-sm"><use href="#icon-instagram"/></svg>
+                </a>
+                <a href="mailto:kartazito@gmail.com" aria-label="E-mail">
+                  <svg class="icon icon-sm"><use href="#icon-mail"/></svg>
+                </a>
+              </div>
+            </div>
+
+            <div>
+              <h3 class="gradient-text">Links Rápidos</h3>
+              <ul class="footer-links">
+                <li><button data-scroll-to="hero">Início</button></li>
+                <li><button data-scroll-to="sobre">Sobre</button></li>
+                <li><button data-scroll-to="servicos">Serviços</button></li>
+                <li><button data-scroll-to="produtos">Produtos</button></li>
+                <li><button data-scroll-to="contato">Contato</button></li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 class="gradient-text">Contato</h3>
+              <ul class="footer-contact">
+                <li><svg class="icon icon-sm"><use href="#icon-phone"/></svg><span>(54) 99177-2608</span></li>
+                <li><svg class="icon icon-sm"><use href="#icon-mail"/></svg><span>kartazito@gmail.com</span></li>
+                <li><svg class="icon icon-sm"><use href="#icon-map-pin"/></svg><span>Rua Serafim Fagundes, 532 - Vacaria, RS</span></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="footer-copy">
+            <p>&copy; <span id="current-year"></span> KARTAZ Gráfica. Todos os direitos reservados.</p>
+            <button class="back-to-top" data-scroll-to="hero" aria-label="Voltar ao topo">
+              <svg class="icon icon-sm"><use href="#icon-arrow-up"/></svg>
+              Voltar ao topo
+            </button>
+          </div>
+        </div>
+      </footer>
+
+      <!-- Botão WhatsApp flutuante -->
+      <a href="https://wa.me/5554991772608" target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="Fale conosco no WhatsApp">
+        <svg class="icon icon-lg"><use href="#icon-message-circle"/></svg>
+      </a>
+    </div>
+
     <!-- Rodapé MonteSite - Atualização Automática -->
     <div id="montesite-footer-badge"></div>
     <script src="https://vaabpicspdbolvutnscp.supabase.co/functions/v1/get-footer-iframe"></script>
+
+    <script src="script.js"></script>
   </body>
 </html>
